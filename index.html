@@ -2,45 +2,42 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>MindAR WebAR Demo</title>
+    <title>MindAR WebAR PNG Demo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Cargar A-Frame primero -->
+
+    <!-- ✅ A-Frame primero -->
     <script src="https://cdn.jsdelivr.net/npm/aframe@1.4.2/dist/aframe.min.js"></script>
-    
-    <!-- Cargar MindAR (versión estable) después -->
+
+    <!-- ✅ MindAR después -->
     <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.1.3/dist/mindar-image-aframe.prod.js"></script>
-    
+
     <style>
       body { margin: 0; overflow: hidden; }
-      #ar-container { width: 100vw; height: 100vh; }
     </style>
   </head>
+
   <body>
-    <div id="ar-container">
-      <a-scene
-        mindar-image="imageTargetSrc: targets.mind; autoStart: true;"
-        color-space="sRGB"
-        embedded
-        renderer="colorManagement: true, physicallyCorrectLights"
-        vr-mode-ui="enabled: false"
-        device-orientation-permission-ui="enabled: false"
-      >
-        <a-assets>
-          <img id="overlay-img" src="assets/overlay.png" />
-        </a-assets>
+    <a-scene
+      mindar-image="imageTargetSrc: targets.mind; autoStart: true;"
+      color-space="sRGB"
+      embedded
+      renderer="colorManagement: true, physicallyCorrectLights"
+      vr-mode-ui="enabled: false"
+      device-orientation-permission-ui="enabled: false"
+    >
+      <a-assets>
+        <img id="overlay-img" src="assets/overlay.png" />
+      </a-assets>
 
-        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+      <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
-        <a-entity mindar-image-target="targetIndex: 0">
-          <a-image 
-            src="#overlay-img"
-            position="0 0 0"
-            scale="1 1 1"
-            rotation="0 0 0"
-          ></a-image>
-        </a-entity>
-      </a-scene>
-    </div>
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-image 
+          src="#overlay-img"
+          position="0 0 0"
+          scale="1 1 1"
+        ></a-image>
+      </a-entity>
+    </a-scene>
   </body>
 </html>
